@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './index.scss'
+import './index.css'
 import { Card } from 'antd'
 import logo from '../../assets/images/logo.png'
 
