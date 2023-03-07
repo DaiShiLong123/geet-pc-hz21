@@ -40,7 +40,7 @@ export default class index extends Component {
                 { required: true, message: '请输入验证码' },
                 {
                   pattern: /^\d{6}$/,
-                  message: '请输入正确的验证码',
+                  message: '请输入正确的验证码de',
                 },
               ]}
             >
