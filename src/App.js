@@ -1,23 +1,17 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Link,
-  Switch,
-} from 'react-router-dom'
-
-import Home from './pages/Layout'
+import Layout from 'pages/Layout'
+import PrivateRoute from 'components/PrivateRoute'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import history from 'utils/history'
 import Login from './pages/Login'
-
 function App() {
   return (
-    <Router>
+    <Router history={history}>
       <div className="App">
         {/* <Link to="/login">登录</Link>
         <Link to="/home">首页</Link> */}
         {/* 配置路由规则 */}
         <Switch>
-          <Route path="/home" component={Home}></Route>
+          <PrivateRoute path="/home" component={Layout}></PrivateRoute>
           <Route path="/login" component={Login}></Route>
         </Switch>
       </div>

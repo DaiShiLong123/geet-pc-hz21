@@ -1,0 +1,36 @@
+.layout {
+  :global {
+    height: 100vh;
+    .ant-layout-header {
+      padding: 0px;
+      position: relative;
+    }
+    .ant-layout {
+      height: 100%;
+    }
+    .logo {
+      float: left;
+      width: 200px;
+      height: 60px;
+
+      background: url(../../assets/images/logo.png);
+      background-size: cover;
+    }
+    .profile {
+      color: #ffffff;
+      font-weight: 700;
+      position: absolute;
+      right: 20px;
+      span + span {
+        margin-left: 20px;
+      }
+    }
+    .site-layout-background {
+      background: #fff;
+    }
+    .ant-row-rtl .logo {
+      float: right;
+      margin: 16px 0 16px 24px;
+    }
+  }
+}
