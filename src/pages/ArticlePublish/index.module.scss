@@ -1,3 +1,7 @@
 .publish {
-  background-color: pink;
+  :global {
+    .ql-editor {
+      min-height: 300px;
+    }
+  }
 }

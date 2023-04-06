@@ -1,10 +1,12 @@
 import axios from 'axios'
 import { hasToken, getToken } from 'utils/storage'
 import history from 'utils/history'
+import { message } from 'antd'
 // 创建axios实例
+export const baseURL = 'http://geek.itheima.net/v1_0/'
 const instance = axios.create({
   // 基础路径
-  baseURL: 'http://geek.itheima.net/v1_0/',
+  baseURL,
   // 超时时间
   timeout: 5000,
 })
@@ -34,6 +36,11 @@ instance.interceptors.response.use(
   function (error) {
     //   对请求错误做些什么
     // 对于token过期进行统一的处理
+    if (!error.response) {
+      message.error('网络繁忙，请稍后重试')
+      //如果error信息中没有response.网络超时导致
+      return Promise.reject(new Error('网络繁忙，请稍后重试'))
+    }
     if (error.request.status === 401) {
       //代表token过期了
       //1.删除token
